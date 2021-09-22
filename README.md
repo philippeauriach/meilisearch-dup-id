@@ -2,6 +2,7 @@
 
 This project contains a meilisearch hook, which sends all products to a meilisearch instance at startup.
 The meilisearch instance is the latest available on docker, i.e. 0.22
+Meilisearch endpoint is configured in https://github.com/philippeauriach/meilisearch-dup-id/blob/master/hooks/meilisearch/utils.js
 
 If you :
 - run `yarn develop`
