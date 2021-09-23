@@ -25,15 +25,15 @@ const addProducts = async (products) => {
 }
 
 const indexAllProducts = async (strapi) => {
-    let hasMore = true
     let _limit = 100
     let _start = 0
-    while (hasMore) {
+    while (true) {
         const products = await strapi.services.product.find({ _limit, _start, _sort: 'created_at:ASC' })
+        // break the loop if there is no more documents
+        if (products.length < 1) { break }
         console.log('Sending ' + products.length + ' products to Meilisearch')
         await addProducts(products)
         _start += products.length
-        hasMore = products.length > 0
     }
 }
 
